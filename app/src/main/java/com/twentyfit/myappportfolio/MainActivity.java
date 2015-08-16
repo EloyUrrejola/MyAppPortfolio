@@ -1,11 +1,12 @@
 package com.twentyfit.myappportfolio;
 
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -41,30 +42,15 @@ public class MainActivity extends ActionBarActivity {
 
     /** Called when the user touches the button */
     public void sendMessage(View v) {
+
+        Button button = (Button) v;
+        String buttonText = (String) button.getText();
+
         // Display message in response to button click
         Context context = getApplicationContext();
-        CharSequence text = null;
+        CharSequence text = getString(R.string.open_app) + " " + buttonText;
         int duration = Toast.LENGTH_SHORT;
 
-        switch(v.getId()) {
-            case R.id.button_1:
-                text = "This button will launch my Spotify Streamer App!";
-                break;
-            case R.id.button_2:
-                text = "This button will launch my Scores App!";
-                break;
-            case R.id.button_3:
-                text = "This button will launch my Library App!";
-                break;
-            case R.id.button_4:
-                text = "This button will launch my Build It Bigger App!";
-                break;
-            case R.id.button_5:
-                text = "This button will launch my XYZ Reader App!";
-                break;
-            case R.id.button_6:
-                text = "This button will launch my Capstone App!";
-        }
         Toast.makeText(context, text, duration).show();
     }
 }
